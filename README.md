@@ -1,9 +1,7 @@
 ### Pokémon Dashboard UI
 A Pokémon-themed dashboard built with React.js, featuring JWT authentication, API integration, and data visualization using Chart.js.
 
-Live Demo
-[Coming Soon]
-
+## Live Demo : (https://dashboard-cyan-phi.vercel.app/login)
 ### Features
 ✅ JWT Authentication (Login/Logout)
 
@@ -69,8 +67,11 @@ Commit your changes (git commit -m "Added new feature")
 
 Push to GitHub (git push origin feature-name)
 
-Create a Pull Request
-
 ## License
 
 MIT License © 2025
+
+![image](https://github.com/user-attachments/assets/51ce8107-c316-4de9-8489-c502cd067bfe)
+![image](https://github.com/user-attachments/assets/cbc5fb9b-26b7-45b8-b419-188097907ce1)
+
+
