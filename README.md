@@ -6,10 +6,15 @@ Live Demo
 
 ### Features
 ✅ JWT Authentication (Login/Logout)
+
 ✅ Protected Routes (Only accessible after login)
+
 ✅ Pokémon Data Fetching (From PokeAPI)
+
 ✅ Dashboard UI with Stats & Charts
+
 ✅ Loading States
+
 ✅ Modern UI Design with Tailwind CSS
 
 ## Tech Stack
