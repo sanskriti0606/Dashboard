@@ -1,49 +1,38 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   const { user } = useContext(AuthContext);
 
   return (
     <div className="w-64 bg-black text-white min-h-screen p-6 relative">
-      {/* Profile Section */}
+      {/* Trainer Profile Section */}
       {user && (
-        <div className="flex items-center space-x-3 relative">
+        <div className="flex flex-col items-center mb-6">
           <div className="relative">
             <img
-              src="https://via.placeholder.com/50"
-              alt="Profile"
-              className="rounded-full"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+              alt="Trainer Avatar"
+              className="rounded-full w-16 h-16 border-2 border-gray-700"
             />
-            {/* Red notification badge */}
+            {/* PokéBall Notification Badge */}
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               4
             </span>
           </div>
-          <div>
-            <h2 className="text-lg font-bold">{user.name || user.email.split("@")[0]}</h2>
-            <p className="text-sm text-gray-400">{user.email}</p>
-          </div>
+          <h2 className="text-lg font-bold mt-3">{user.name || "Pokémon Trainer"}</h2>
+          <p className="text-sm text-gray-400">{user.email}</p>
         </div>
       )}
 
-      {/* Navigation */}
-      <nav className="mt-6 space-y-2">
-        {["Dashboard", "Expenses", "Wallets", "Summary", "Accounts", "Settings"].map((item) => (
-          <NavLink
-            key={item}
-            to={`/${item.toLowerCase().replace(" ", "-")}`}
-            className={({ isActive }) =>
-              `block py-2 px-4 rounded transition-all duration-300 ${
-                isActive ? "text-white font-bold" : "text-gray-400 hover:text-white"
-              }`
-            }
-          >
-            {item}
-          </NavLink>
-        ))}
-      </nav>
+      {/* Static Features List */}
+      <div className="space-y-3 mt-6">
+        <p className="text-gray-400 hover:text-white cursor-pointer">📖 Pokedex</p>
+        <p className="text-white font-bold">📊 Pokémon Stats</p> {/* Active Feature */}
+        <p className="text-gray-400 hover:text-white cursor-pointer">⚔️ Battles</p>
+        <p className="text-gray-400 hover:text-white cursor-pointer">🎒 Items</p>
+        <p className="text-gray-400 hover:text-white cursor-pointer">⚙️ Settings</p>
+      </div>
     </div>
   );
 }
