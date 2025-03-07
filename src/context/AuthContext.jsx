@@ -6,17 +6,20 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ Add loading state
   const navigate = useNavigate();
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) {
+    const token = localStorage.getItem("token");
+
+    if (savedUser && token) {
       setUser(savedUser);
     }
+    setLoading(false); // ✅ Finish loading when check is complete
   }, []);
 
   const login = async (email, password) => {
-    // 🔹 Check if user exists in local storage (Signup)
     const storedUser = JSON.parse(localStorage.getItem(email));
 
     if (storedUser && storedUser.password === password) {
@@ -30,7 +33,6 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    // 🔹 Attempt login via Reqres API (Only for valid test accounts)
     try {
       const res = await axios.post("https://reqres.in/api/login", { email, password });
       const token = res.data.token;
@@ -59,6 +61,10 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     navigate("/login");
   };
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>; // ✅ Prevent flash of login screen
+  }
 
   return (
     <AuthContext.Provider value={{ user, login, signup, logout }}>

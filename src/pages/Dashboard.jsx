@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import axiosInstance from "../utils/axiosInstance";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
@@ -6,8 +8,17 @@ import ChartSection from "../components/ChartSection";
 import PokemonDetails from "../components/PokemonDetails";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [pokemon, setPokemon] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -32,17 +43,17 @@ const Dashboard = () => {
         console.error("Error fetching Pokémon:", error);
       }
     };
-    fetchPokemon();
-  }, []);
+
+    if (user) {
+      fetchPokemon();
+    }
+  }, [user]);
 
   return (
     <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col w-full">
-        {/* 🔹 Navbar */}
         <Navbar />
-
-        {/* 🔹 Main Content */}
         <div className="flex flex-col p-6 bg-gray-50 h-full">
           <div className="flex gap-6">
             <ChartSection pokemon={pokemon} />
