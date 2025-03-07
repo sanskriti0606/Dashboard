@@ -1,26 +1,57 @@
-<h1 align="center">React Admin Dashboard</h1>
+### Pokémon Dashboard UI
+A Pokémon-themed dashboard built with React.js, featuring JWT authentication, API integration, and data visualization using Chart.js.
 
-![Demo App](/public/screenshot-for-readme-1.png)
-![Demo App](/public/screenshot-for-readme-2.png)
-![Demo App](/public/screenshot-for-readme-3.png)
+Live Demo
+[Coming Soon]
 
-[Video Tutorial on Youtube](https://youtu.be/gK0v_d91epk)
+### Features
+✅ JWT Authentication (Login/Logout)
+✅ Protected Routes (Only accessible after login)
+✅ Pokémon Data Fetching (From PokeAPI)
+✅ Dashboard UI with Stats & Charts
+✅ Loading States
+✅ Modern UI Design with Tailwind CSS
 
-### This is a free admin dashboard ui kit built with:
+## Tech Stack
+React.js (Frontend Framework)
+React Router (Navigation & Protected Routes)
+Axios (API Requests)
+Tailwind CSS (Styling)
+Chart.js (Data Visualization)
+Reqres.in / MockAPI.io / JSONPlaceholder (Mock Authentication API)
+PokeAPI (Pokémon Data)
 
--   React
--   Tailwind CSS
--   Recharts
--   Framer Motion
-
-It is completely responsive and can be used for any type of web application.
-
-### Run this app locally
-
-```shell
+Setup Instructions
+1. Clone the Repository
+bash
+Copy
+``git clone https://github.com/yourusername/pokemon-dashboard.git``
+cd pokemon-dashboard
+2. Install Dependencies
+bash
+Edit
 npm install
-```
+3. Start the Development Server
+bash
+Edit
+npm run dev
+The app will be available at http://localhost:5173 (default Vite port).
 
-```shell
-npm run start
-```
+## Authentication Flow
+User logs in via Reqres.in / MockAPI.io / JSONPlaceholder
+JWT token is stored securely in localStorage / sessionStorage
+Dashboard is protected (Only accessible after login)
+Logout clears JWT and redirects to login
+## API Integration
+Fetch Pokémon data from PokeAPI
+Display Pokémon stats, experience, levels
+Implement loading states
+
+## Contributing
+Fork the repository
+Create a feature branch (git checkout -b feature-name)
+Commit your changes (git commit -m "Added new feature")
+Push to GitHub (git push origin feature-name)
+Create a Pull Request
+## License
+MIT License © 2025
