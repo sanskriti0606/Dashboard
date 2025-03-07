@@ -1,7 +1,7 @@
 ### Pokémon Dashboard UI
 A Pokémon-themed dashboard built with React.js, featuring JWT authentication, API integration, and data visualization using Chart.js.
 
-## Live Demo : (https://dashboard-cyan-phi.vercel.app/login)
+## Live Demo : (https://dashboard-cyan-phi.vercel.app)
 ### Features
 ✅ JWT Authentication (Login/Logout)
 
